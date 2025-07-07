@@ -2,7 +2,7 @@
 :root {
   --primary-color: #47b2e4;
   --secondary-color: #6c757d;
-  --light-color: #F9F6F7;
+  --light-color: #F9F8F9;
   --dark-color: #343a40;
   --font-family-base: 'Poppins', sans-serif;
 }
@@ -11,7 +11,7 @@
 body {
   font-family: var(--font-family-base);
   color: #212529;
-  background-color: #F9F6F7; /* nuevo color de fondo */
+  background-color: #F9F8F9; /* nuevo color de fondo */
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
@@ -19,7 +19,7 @@ body {
 
 /* 3. NAVBAR */
 .navbar {
-  background-color: #FF0042;
+  background-color: #9783FE;
   transition: background-color 0.3s, box-shadow 0.3s;
   padding: 15px 0;
 }
@@ -95,7 +95,7 @@ h1, h2, h3, h4, h5 {
 .h2-custom {
   font-family: 'Anybody', sans-serif;
   font-weight: 700;
-  color: #F9F6F7;
+  color: #F9F8F9;
 }
 
 h5 {
@@ -132,11 +132,11 @@ h5 {
 .h1-custom {
   font-family: 'Anybody', cursive;
   font-weight: 700;
-  color: #FF0042; /* color específico para el título */
+  color: #9783FE; /* color específico para el título */
 }
 
 .h1-custom {
-  color: #FF0042 !important;
+  color: #9783FE !important;
 }
 
 .p-custom {
@@ -185,7 +185,7 @@ h5 {
 
 /* Botón principal del hero */
 .section-spacing .btn-dark {
-  background-color: #FF0042;
+  background-color: #9783FE;
   color: #FFEFF1;
   border: none;
 }
@@ -193,6 +193,17 @@ h5 {
 .section-spacing .btn-dark:hover {
   background-color: #ffffff;
   color: #ffffff;
+}
+
+/* Botón final pág detalle */
+.btn-cta {
+  background-color: #00DFF6;
+  color: #1D1D1D;
+}
+
+.btn-cta:hover {
+  background-color: #00b5cc; /* tono un poco más oscuro */
+  color: #1D1D1D;
 }
 
 /* 5. SECCIONES */
@@ -227,26 +238,26 @@ section h2 {
 
 /* Estilos solo para la sección PequeSwap */
 .peque-section {
-  background-color: #FF0042;
-  color: #F9F6F7;
+  background-color: #9783FE;
+  color: #F9F8F9;
   border-radius: 8px; /* opcional: bordes redondeados */
   padding: 80px 20px;
 }
 
 .peque-section h2,
 .peque-section p {
-  color: #F9F6F7;
+  color: #F9F8F9;
 }
 
 .peque-section .btn {
-  background-color: #F9F6F7;
-  color: #FF0042;
+  background-color: #F9F8F9;
+  color: #9783FE;
   border: none;
 }
 
 .peque-section .btn:hover {
   background-color: #ffffff;
-  color: #FF0042;
+  color: #9783FE;
   transform: scale(1.05);
   transition: all 0.3s ease-in-out;
 }
@@ -261,13 +272,13 @@ section h2 {
 
 /* Cambios específicos para la sección hero-pagina-detalle */
 .hero-pagina-detalle h1.h1-custom {
-  color: #00DFF6 !important;
+  color: #1D1D1D !important;
 }
 
 .hero-pagina-detalle .btn.btn-dark {
   background-color: #00DFF6 !important;
   border-color: #00DFF6 !important;
-  color: #fff !important;
+  color: #1D1D1D !important;
 }
 
 .hero-pagina-detalle .btn.btn-dark:hover {
@@ -354,7 +365,7 @@ form .form-control {
 }
 
 form button.btn-primary {
-  background-color: #FF0042;
+  background-color: #9783FE;
   border: none;
   width: 100%;
   border-radius: 50px;
@@ -362,7 +373,7 @@ form button.btn-primary {
 }
 
 .btn-primary {
-  background-color: #FF0042;
+  background-color: #9783FE;
   color: #FFEFF1;
   border: none;
   border-radius: 50px;
