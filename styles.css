@@ -2,7 +2,7 @@
 :root {
   --primary-color: #47b2e4;
   --secondary-color: #6c757d;
-  --light-color: #F9F8F9;
+  --light-color: #FFF5F7;
   --dark-color: #343a40;
   --font-family-base: 'Poppins', sans-serif;
 }
@@ -11,7 +11,7 @@
 body {
   font-family: var(--font-family-base);
   color: #212529;
-  background-color: #F9F8F9; /* nuevo color de fondo */
+  background-color: #FFF5F7; /* nuevo color de fondo */
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
@@ -19,13 +19,13 @@ body {
 
 /* 3. NAVBAR */
 .navbar {
-  background-color: #9783FE;
+  background-color: #FF0042;
   transition: background-color 0.3s, box-shadow 0.3s;
   padding: 15px 0;
 }
 
 .navbar.scrolled {
-  background-color: #fff;
+  background-color: #FF0042;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
 }
 
@@ -95,7 +95,7 @@ h1, h2, h3, h4, h5 {
 .h2-custom {
   font-family: 'Anybody', sans-serif;
   font-weight: 700;
-  color: #F9F8F9;
+  color: #FFF5F7;
 }
 
 h5 {
@@ -132,11 +132,11 @@ h5 {
 .h1-custom {
   font-family: 'Anybody', cursive;
   font-weight: 700;
-  color: #9783FE; /* color específico para el título */
+  color: #FF0042; /* color específico para el título */
 }
 
 .h1-custom {
-  color: #9783FE !important;
+  color: #FF0042 !important;
 }
 
 .p-custom {
@@ -185,7 +185,7 @@ h5 {
 
 /* Botón principal del hero */
 .section-spacing .btn-dark {
-  background-color: #9783FE;
+  background-color: #FF0042;
   color: #FFEFF1;
   border: none;
 }
@@ -238,26 +238,26 @@ section h2 {
 
 /* Estilos solo para la sección PequeSwap */
 .peque-section {
-  background-color: #9783FE;
-  color: #F9F8F9;
+  background-color: #FF0042;
+  color: #FFF5F7;
   border-radius: 8px; /* opcional: bordes redondeados */
   padding: 80px 20px;
 }
 
 .peque-section h2,
 .peque-section p {
-  color: #F9F8F9;
+  color: #FFF5F7;
 }
 
 .peque-section .btn {
-  background-color: #F9F8F9;
-  color: #9783FE;
+  background-color: #FFF5F7;
+  color: #FF0042;
   border: none;
 }
 
 .peque-section .btn:hover {
   background-color: #ffffff;
-  color: #9783FE;
+  color: #FF0042;
   transform: scale(1.05);
   transition: all 0.3s ease-in-out;
 }
@@ -365,7 +365,7 @@ form .form-control {
 }
 
 form button.btn-primary {
-  background-color: #9783FE;
+  background-color: #FF0042;
   border: none;
   width: 100%;
   border-radius: 50px;
@@ -373,7 +373,7 @@ form button.btn-primary {
 }
 
 .btn-primary {
-  background-color: #9783FE;
+  background-color: #FF0042;
   color: #FFEFF1;
   border: none;
   border-radius: 50px;
@@ -403,14 +403,19 @@ img.rounded-circle {
   border: 5px solid var(--light-color);
 }
 
+img.rounded-circle {
+  border-radius: 0 !important;
+  border: none !important;
+}
+
 /* 11. GALERÍA */
 .container .row img {
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s;
 }
 
 .container .row img:hover {
   transform: scale(1.05);
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1);
 }
 
 /* ============================== */
