@@ -570,6 +570,11 @@ img.rounded-circle {
   padding-bottom: 50px;
 }
 
+/* SCROLL */
+html {
+  scroll-behavior: smooth;
+}
+
 
 /* ============================== */
 /* MEDIA QUERIES */

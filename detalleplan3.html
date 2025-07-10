@@ -21,11 +21,13 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<!-- NAVBAR: Menú de navegación fijo superior -->
+
 <nav class="navbar navbar-expand-lg fixed-top">
   <div class="container">
-    <!-- Logo o nombre del sitio -->
-    <img src="Logo.svg" class="logo">
+    <!-- Logo o nombre del sitio con enlace al hero de home -->
+    <a href="index.html#hero" class="navbar-brand">
+      <img src="Logo.svg" class="logo" alt="KidKit Logo">
+    </a>
     <!-- Botón para mostrar menú en mobile -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
@@ -33,15 +35,17 @@
     <!-- Ítems del menú -->
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link active" href="#">Inicio</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Kits</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Suscripción</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+        <!-- Inicio va a la home completa -->
+        <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
+        <!-- Los demás van a las secciones del index -->
+        <li class="nav-item"><a class="nav-link" href="index.html#kits">Kits</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#suscripcion">Suscripción</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#contacto">Contacto</a></li>
       </ul>
     </div>
   </div>
 </nav>
-<!-- /NAVBAR -->
+
 
 <!-- HERO: Sección de portada con llamado a la acción -->
 <section class="section-spacing container d-flex align-items-center justify-content-between hero-pagina-detalle" style="min-height: 100vh; padding-top: 100px;">
