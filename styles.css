@@ -17,7 +17,33 @@ body {
   scroll-behavior: smooth;
 }
 
-/* 3. NAVBAR */
+/* 3. LISTADO CHECK ✔ */
+.benefits-list {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+  text-align: left !important;
+}
+
+.benefits-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5em;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+  text-align: left !important;
+}
+
+.espacio-pequeno {
+  display: block;
+  height: 8px; /* más chico que un <br><br> */
+}
+
+.benefit-light {
+  color: #464646; /* gris más claro que #1D1D1D */
+  font-weight: 400;
+}
+
+/* 4. NAVBAR */
 .navbar {
   background-color: #FF0042;
   transition: background-color 0.3s, box-shadow 0.3s;
@@ -79,7 +105,7 @@ body {
   box-shadow: none;        /* quita sombra */
 }
 
-/* 4. HERO */
+/* 5. HERO */
 .row.p-5 {
   min-height: 90vh;
   display: flex;
@@ -155,7 +181,7 @@ h5 {
   font-weight: 700; /* Bold */
 }
 
-/* Botones */
+/* 6. Botones */
 
 .btn {
   border-radius: 50px;
@@ -167,46 +193,71 @@ h5 {
 .btn-dark {
   background-color: var(--primary-color);
   border: none;
+  /* Eliminé color y background-color en hover para mantener */
+  /* transition solo para el efecto de escala */
+  transition: transform 0.3s ease-in-out;
 }
 
 .btn-dark:hover {
-  background-color: #369cc5;
+  /* Sin cambio de color */
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
 }
 
 .btn-outline-dark {
   border: 2px solid var(--primary-color);
   color: var(--primary-color);
+  transition: all 0.3s ease-in-out;
 }
 
 .btn-outline-dark:hover {
-  background-color: var(--primary-color);
-  color: #fff;
+  /* Sin cambio de color */
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
 }
 
-/* Botón principal del hero */
+/* 7. Botones página detalle */
+
+.btn-cta {
+  background-color: #00DFF6 !important;
+  color: #1D1D1D !important;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-cta:hover {
+  background-color: #00DFF6 !important; /* mismo color */
+  color: #1D1D1D !important;            /* mismo color */
+  transform: scale(1.05);
+}
+
+/* 8. Botón principal del hero */
 .section-spacing .btn-dark {
   background-color: #FF0042;
   color: #FFEFF1;
   border: none;
+  transition: transform 0.3s ease-in-out;
 }
 
 .section-spacing .btn-dark:hover {
-  background-color: #ffffff;
-  color: #ffffff;
+  /* Sin cambio de color */
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
 }
 
 /* Botón final pág detalle */
 .btn-cta {
   background-color: #00DFF6;
   color: #1D1D1D;
+  transition: transform 0.3s ease-in-out;
 }
 
 .btn-cta:hover {
-  background-color: #00b5cc; /* tono un poco más oscuro */
-  color: #1D1D1D;
+  /* Sin cambio de color */
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
 }
 
-/* 5. SECCIONES */
+/* 9. SECCIONES */
 section {
   padding: 20px 0;
 }
@@ -221,7 +272,6 @@ section h2 {
   display: none;
 }
 
-/* 5. SECCIONES */
 section {
   padding: 30px 0;
 }
@@ -236,7 +286,7 @@ section h2 {
   display: none;
 }
 
-/* Estilos solo para la sección PequeSwap */
+/* 10. Estilos solo para la sección PequeSwap */
 .peque-section {
   background-color: #FF0042;
   color: #FFF5F7;
@@ -253,13 +303,13 @@ section h2 {
   background-color: #FFF5F7;
   color: #FF0042;
   border: none;
+  transition: transform 0.3s ease-in-out;
 }
 
 .peque-section .btn:hover {
-  background-color: #ffffff;
-  color: #FF0042;
+  /* Sin cambio de color */
   transform: scale(1.05);
-  transition: all 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 .full-width {
@@ -270,25 +320,54 @@ section h2 {
   margin-right: 0;
 }
 
-/* Cambios específicos para la sección hero-pagina-detalle */
+/* 11. Cambios específicos para la sección hero-pagina-detalle */
 .hero-pagina-detalle h1.h1-custom {
-  color: #1D1D1D !important;
+  color: #FF0042 !important;
 }
 
 .hero-pagina-detalle .btn.btn-dark {
-  background-color: #00DFF6 !important;
-  border-color: #00DFF6 !important;
-  color: #1D1D1D !important;
+  background-color: #FF0042 !important;
+  border-color: #FF0042 !important;
+  color: #FFF5F7 !important;
+  transition: transform 0.3s ease-in-out;
 }
 
 .hero-pagina-detalle .btn.btn-dark:hover {
-  background-color: #00b8d6 !important;
-  border-color: #00b8d6 !important;
-  color: #fff !important;
+  /* Sin cambio de color */
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}
+
+.hero-pagina-detalle h2.h2-custom {
+  font-weight: 400; /* Poppins regular */
 }
 
 
-/* 6. CARDS */
+/* 12. CARRUSEL */
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-image: none; /* quitamos la flecha default de Bootstrap */
+  width: 2rem;
+  height: 2rem;
+  border: solid #FF0042;
+  border-width: 0 4px 4px 0;
+  display: inline-block;
+  padding: 8px;
+}
+
+/* Flecha izquierda (rotamos para apuntar a la izquierda) */
+.carousel-control-prev-icon {
+  transform: rotate(135deg);
+}
+
+/* Flecha derecha */
+.carousel-control-next-icon {
+  transform: rotate(-45deg);
+}
+
+
+/* 12. CARDS */
 
 .card-sin-fondo {
   background-color: transparent;
@@ -329,7 +408,7 @@ section h2 {
   color: #6c757d;
 }
 
-/* CSS para quitar outline y box-shadow del foco */
+/* 13. CSS para quitar outline y box-shadow del foco */
 
 .card:focus,
 .card:focus-visible,
@@ -350,7 +429,7 @@ section h2 {
 }
 
 
-/* 7. TESTIMONIOS */
+/* 14. TESTIMONIOS */
 .blockquote {
   background-color: var(--light-color);
   border-left: 4px solid var(--primary-color);
@@ -358,7 +437,7 @@ section h2 {
   border-radius: 5px;
 }
 
-/* 8. FORMULARIO */
+/* 15. FORMULARIO */
 form .form-control {
   border-radius: 8px;
   border: 1px solid #ced4da;
@@ -391,14 +470,14 @@ form button.btn-primary {
 }
 
 
-/* 9. FOOTER */
+/* 16. FOOTER */
 footer {
   background-color: var(--dark-color);
   color: #ffffff;
   font-size: 0.9rem;
 }
 
-/* 10. IMÁGENES */
+/* 17. IMÁGENES */
 img.rounded-circle {
   border: 5px solid var(--light-color);
 }
@@ -408,7 +487,8 @@ img.rounded-circle {
   border: none !important;
 }
 
-/* 11. GALERÍA */
+
+/* 18. GALERÍA */
 .container .row img {
   transition: transform 0.3s;
 }
@@ -418,15 +498,7 @@ img.rounded-circle {
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1);
 }
 
-/* ============================== */
-/* CUSTOM HELPER CLASSES */
-/* ============================== */
-
-/* ============================== */
-/* CUSTOM HELPER CLASSES */
-/* ============================== */
-
-/* TITULOS */
+/* 19. TITULOS */
 .h1-custom {
   font-size: 3rem;
   font-weight: 700;
@@ -439,6 +511,15 @@ img.rounded-circle {
   font-weight: 600;
   line-height: 1.3;
   color: var(--dark-color);
+}
+
+#carouselGaleriaD .h2-anybody {
+  font-size: 2.5rem; /* Ajustá según lo que necesites */
+  line-height: 1.3;
+  margin-bottom: -1rem; /* si querés menos espacio abajo también */
+  margin-top: 2rem; /* si querés menos espacio abajo también */
+  padding-left: 60px;
+  padding-right: 60px;
 }
 
 .h2-anybody {
@@ -498,12 +579,88 @@ img.rounded-circle {
   color: var(--dark-color);
 }
 
-/* PÁRRAFOS Y TEXTOS */
+/* 20. GALERIA CON FOTOS */
+
+  .caption {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: #1D1D1D;
+    margin-top: 0.5rem;
+  }
+
+  /* Flechas afuera */
+  #carouselMulti .carousel-control-prev,
+  #carouselMulti .carousel-control-next {
+    width: 3rem;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 1;
+  }
+
+  #carouselMulti .carousel-control-prev {
+    left: -3.5rem;
+  }
+
+  #carouselMulti .carousel-control-next {
+    right: -3.5rem;
+  }
+
+  .carousel-inner img {
+  max-width: 75%; /* o 80% si querés aún más chicas */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+  /* Desktop: sin cambios (2 imágenes visibles) */
+/* No tocar nada de esta parte si ya está bien */
+
+/* Mobile: arreglar flechas para que no queden cortadas */
+@media (max-width: 767.98px) {
+  #carouselMulti .carousel-control-prev,
+  #carouselMulti .carousel-control-next {
+    width: 10%;        /* Más ancho para que sea más fácil tocar */
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  #carouselMulti .carousel-control-prev {
+    left: 0;           /* Fuera del borde, pero visible */
+  }
+
+  #carouselMulti .carousel-control-next {
+    right: 0;          /* Fuera del borde, pero visible */
+  }
+}
+
+/* Caption estilo */
+.caption {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  color: #1D1D1D;
+  margin-top: 10px;
+}
+
+/* Flechas por fuera */
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%;
+}
+
+@media (max-width: 768px) {
+  /* En mobile: flechas más visibles */
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-size: 60% 60%;
+  }
+}
+
+
+/* 20. PÁRRAFOS Y TEXTOS */
 
 .lead-custom {
   font-size: 1.25rem;
   font-weight: 400;
-  color: var(--secondary-color);
+  color: #1D1D1D;
 }
 
 .p-semibold {
@@ -512,17 +669,14 @@ img.rounded-circle {
   color: #1D1D1D;
 }
 
-
-
-/* NAVBAR */
+/* 21. NAVBAR */
 .logo {
   height: 30px;     /* Tamaño ideal para navbar */
   width: auto;      /* Mantiene la proporción del logo */
   max-height: 100%; /* Asegura que nunca se pase del contenedor */
 }
 
-
-/* FONDOS E IMÁGENES */
+/* 22. FONDOS E IMÁGENES */
 .bg-cover {
   background-size: cover;
   background-position: center;
@@ -545,7 +699,7 @@ img.rounded-circle {
   overflow: hidden;
 }
 
-/* TEXTOS ADICIONALES */
+/* 23. TEXTOS ADICIONALES */
 .text-uppercase-custom {
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -559,7 +713,7 @@ img.rounded-circle {
   color: #6c757d;
 }
 
-/* ESPACIADOS */
+/* 24. ESPACIADOS */
 .section-spacing {
   padding-top: 70px;
   padding-bottom:70px;
@@ -570,15 +724,23 @@ img.rounded-circle {
   padding-bottom: 50px;
 }
 
-/* SCROLL */
+/* 25. SCROLL */
 html {
   scroll-behavior: smooth;
 }
 
 
+
 /* ============================== */
 /* MEDIA QUERIES */
 /* ============================== */
+
+@media (max-width: 576px) {
+  .services-section {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
 
 @media (max-width: 768px) {
   h1 {
@@ -604,5 +766,160 @@ html {
 @media screen and (max-width: 576px) {
   .masonry__container {
     column-count: 1;
+  }
+}
+
+@media (max-width: 576px) {
+  .container > .row > .col-lg-6 {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@media (max-width: 576px) {
+  .section-spacing.peque-section.full-width > div > .row > .col-lg-6 {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .h2-custom.medium-h2 {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar .container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+/* HERO: QUE LA IMAGEN QUEDE ARRIBA */
+
+@media (max-width: 576px) {
+  /* En móviles, imagen primero, texto segundo */
+  #hero .col-lg-6.order-lg-1.order-2 {
+    order: 1 !important;
+  }
+  #hero .col-lg-6.order-lg-2.order-1 {
+    order: 2 !important;
+  }
+}
+
+/* HERO DETALLE: QUE LA IMAGEN QUEDE ARRIBA */
+@media (max-width: 576px) {
+  .hero-pagina-detalle .col-lg-6.order-lg-1.order-2 {
+    order: 1 !important; /* Imagen primero */
+  }
+  .hero-pagina-detalle .col-lg-6.order-lg-2.order-1 {
+    order: 2 !important; /* Texto segundo */
+  }
+}
+
+/* =================== */
+/* PARA DETALLE */
+/* =================== */
+
+/* Para pantallas entre 577px y 991.98px: columnas 100% ancho y padding 40px */
+@media (max-width: 991.98px) and (min-width: 577px) {
+  .hero-pagina-detalle .col-lg-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding-left: 40px;
+    padding-right: 40px;
+    text-align: left;
+  }
+
+  .hero-pagina-detalle .text-center img {
+    max-width: 80%;
+    height: auto;
+  }
+
+  .hero-pagina-detalle .d-flex {
+    justify-content: flex-start;
+  }
+}
+
+/* Para la sección con 2 suscripciones: en móviles, las columnas ocupan 100% */
+@media (max-width: 767.98px) {
+  #kits .col-md-6 {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+}
+
+/* Reducir margen superior de la sección detalle */
+#kits-detalle {
+  margin-top: 40px; /* margen superior reducido */
+}
+
+/* Limitar el ancho máximo del container interno para que las cards no sean tan anchas en detalle */
+#kits-detalle .container {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Padding lateral extra en desktop para que las cards no queden pegadas al borde en detalle */
+@media (min-width: 992px) {
+  #kits-detalle .row {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* Para pantallas menores o iguales a 576px, el padding lateral en detalle (opcional) */
+@media (max-width: 576px) {
+  #kits-detalle .row > .col-md-6 {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/* Ajustes generales para hero-pagina-detalle h2 */
+.hero-pagina-detalle h2.h2-custom {
+  text-align: left;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+/* =================== */
+/* Ajustes para FAQ */
+/* =================== */
+
+@media (max-width: 576px) {
+  section.text-center > .container {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
+
+/* Menos espacio arriba y abajo del bloque FAQ */
+section.text-center {
+  padding-top: 60px !important;
+  padding-bottom: 30px !important;
+}
+
+/* Menos margen arriba del título */
+section.text-center h2.h2-custom {
+  margin-top: 30px;
+  margin-bottom: 60px;
+}
+
+/* Ajuste del bloque anterior para que no sume margen extra abajo */
+#kits-detalle {
+  margin-bottom: 20px;
+}
+
+/* YA NO ES FAQs */
+
+/* Padding lateral para aprendizajes-section en pantallas medianas */
+@media (max-width: 991.98px) {
+  .aprendizajes-section .col-lg-6 {
+    padding-left: 30px !important;
+    padding-right: 30px !important;
   }
 }

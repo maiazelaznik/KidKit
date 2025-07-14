@@ -4,7 +4,7 @@
     <!-- Configuración básica del documento -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plantilla Visible - Belluccia 3</title>
+    <title>KidKit</title>
 
     <!-- Tipografía desde Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,700&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
@@ -17,6 +17,9 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
+    <!-- FAVICON -->
+    <link rel="icon" href="favicon.png" type="image/png" />
+
     <!-- Estilos personalizados -->
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -25,7 +28,7 @@
 <nav class="navbar navbar-expand-lg fixed-top">
   <div class="container">
     <!-- Logo o nombre del sitio con enlace al hero de home -->
-    <a href="index.html#hero" class="navbar-brand">
+    <a href="home.html#hero" class="navbar-brand">
       <img src="Logo.svg" class="logo" alt="KidKit Logo">
     </a>
     <!-- Botón para mostrar menú en mobile -->
@@ -36,7 +39,7 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav">
         <!-- Inicio va a la home completa -->
-        <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link active" href="home.html">Inicio</a></li>
         <!-- Los demás van a las secciones del index -->
         <li class="nav-item"><a class="nav-link" href="index.html#kits">Kits</a></li>
         <li class="nav-item"><a class="nav-link" href="index.html#suscripcion">Suscripción</a></li>
@@ -52,14 +55,14 @@
   <div class="row align-items-center">
     <!-- Imagen a la izquierda ahora -->
     <div class="col-lg-6 order-lg-1 order-2 text-center">
-      <img src="cajaceleste.png" class="img-fluid img-rounded" alt="Imagen Hero">
+      <img src="cajaceleste.png" class="img-fluid img-rounded" alt="Imagen Hero" style="max-width: 120%;">
     </div>
     <!-- Texto a la derecha ahora -->
     <div class="col-lg-6 order-lg-2 order-1">
-      <h1 class="h1-custom">El kit completo para mentes brillantes</h1>
-       <h2 class="h2-custom medium-h2 mb-2" style="color: #1D1D1D; font-size: 2rem;">
-  $60.000 / mes
-</h2>
+      <h1 class="h1-custom" style="color: #FF0042;">El kit completo para mentes brillantes</h1>
+      <h2 class="h2-custom medium-h2 mb-2" style="color: #1D1D1D; font-size: 2.3rem; font-family: 'Poppins', sans-serif; font-weight: 500;">
+        $60.000 / mes
+      </h2>
       <p class="p-custom">
         <span class="medium">
           Ciencia, arte y recetas fáciles para hacer en familia. Además accedés a <span class="bold">beneficios exclusivos:</span> intercambio de kits, descuentos en jugueterías educativas y más.
@@ -105,7 +108,7 @@
 <!-- QUÉ INCLUYE -->
 
 <!-- APRENDIZAJE QUE TRASCIENDE: Texto izquierda, imagen derecha -->
-<section class="section-spacing container">
+<section class="section-spacing container hero-pagina-detalle aprendizajes-section">
   <div class="row align-items-center">
     <!-- Texto a la izquierda -->
     <div class="col-lg-6 order-lg-1 order-2 ps-3 ps-lg-5">
@@ -114,7 +117,7 @@
         <span class="p-semibold">Este plan es ideal para quienes disfrutan jugar, ensuciarse, cocinar, explorar y crear.</span>
         Recomendado para chicos y chicas de 3 a 8 años, acompañados por adultos con ganas de compartir momentos inolvidables.
       </p>
-      <a href="#" class="btn mt-3" style="background-color: #00DFF6; color: #1D1D1D;">Empezar a jugar</a>
+      <a href="#" class="btn btn-dark mt-3">Empezar a jugar</a>
     </div>
     <!-- Imagen a la derecha -->
     <div class="col-lg-6 order-lg-2 order-1 text-center mb-4 mb-lg-0">
@@ -125,7 +128,7 @@
 <!-- APRENDIZAJE QUE TRASCIENDE: Texto izquierda, imagen derecha -->
 
 <!-- BENEFICIOS -->
-<section class="text-center" style="background-color: #FFF5F7; font-family: 'Poppins', sans-serif; padding-top: 90px; padding-bottom: 90px;">
+<section class="text-center beneficios-section" style="background-color: #FFF5F7; font-family: 'Poppins', sans-serif; padding-top: 90px; padding-bottom: 90px;">
   <div class="container">
     <h2 class="h2-custom medium-h2 mb-5" style="color: #1D1D1D; font-size: 2.4rem;">
       Beneficios exclusivos
@@ -134,19 +137,19 @@
     <div class="row">
       <!-- Card 1 -->
       <div class="col-md-4 mb-5 d-flex flex-column align-items-center text-center">
-        <img src="quincenal.png" alt="Miembro 1" class="mb-3" style="max-width: 300px; height: auto; display: block; margin: 0 auto;">
+        <img src="quincenal.png" alt="Entrega quincenal" class="mb-3" style="max-width: 300px; height: auto; display: block; margin: 0 auto;">
         <h5>Entrega quincenal a tu domicilio</h5>
         <p class="p-custom">Recibí tu KidKit cada 15 días, directo a tu casa y listo para jugar.</p>
       </div>
       <!-- Card 2 -->
       <div class="col-md-4 mb-5 d-flex flex-column align-items-center text-center">
-     <img src="guia2.png" alt="Miembro 2" class="mb-3" style="max-width: 300px; height: auto; display: block; margin: 0 auto;">
+        <img src="guia2.png" alt="Guía para padres" class="mb-3" style="max-width: 300px; height: auto; display: block; margin: 0 auto;">
         <h5>Acceso a guía para padres</h5>
         <p class="p-custom">Con ideas, consejos y orientación paso a paso. También incluye mini videos.</p>
       </div>
       <!-- Card 3 -->
       <div class="col-md-4 mb-5 d-flex flex-column align-items-center text-center">
-<img src="descuento.png" alt="Miembro 3" class="mb-3" style="max-width: 300px; height: auto; display: block; margin: 0 auto;">
+        <img src="descuento.png" alt="Descuento en librerías" class="mb-3" style="max-width: 300px; height: auto; display: block; margin: 0 auto;">
         <h5>10% OFF en librerías y jugueterías</h5>
         <p class="p-custom">Descuento exclusivo en nuestra red de tiendas educativas participantes.</p>
       </div>
@@ -155,12 +158,14 @@
 </section>
 <!-- BENEFICIOS -->
 
+<section class="section-spacing container no-underline"></section>
+
 <!-- SECCIÓN B: Imagen izquierda, texto derecha -->
 <section class="section-spacing peque-section full-width" style="background-color: #00DFF6;">
   <div style="max-width: 1140px; margin: 0 auto; padding: 0 20px;">
     <div class="row align-items-center">
       <div class="col-lg-6 text-center mb-4 mb-lg-0">
-        <img src="cajadetalle.png" class="img-fluid img-rounded" alt="Imagen ilustrativa">
+       <img src="swap2.gif" class="img-fluid img-rounded img-grande" alt="Imagen ilustrativa">
       </div>
       <div class="col-lg-6">
         <h2 class="h2-anybody" style="color: #1D1D1D;">Beneficio PequeSwap para intercambiar tus kits</h2>
@@ -174,6 +179,59 @@
   </div>
 </section>
 <!-- SECCIÓN B: Imagen izquierda, texto derecha -->
+
+<!-- PLANES DE SUSCRIPCIÓN DETALLE -->
+<section id="kits-detalle" class="section-spacing text-center" style="font-family: 'Poppins', sans-serif; margin-top: 40px;">
+  <div class="container">
+    <h2 class="h2-custom" style="color: #1D1D1D;">Explorá otros kits disponibles</h2>
+    <div class="row mt-5">
+
+      <!-- Plan Básico -->
+      <div class="col-md-6 mb-4">
+        <div class="card p-4 h-100 text-start">
+          <img src="violeta.png" class="img-fluid img-rounded my-3" alt="Plan Básico">
+          <h5 style="text-transform: none;">Mini científicos</h5>
+          <p class="display-6" style="color: #1D1D1D; font-weight: 400;">$49.000 <small>/ mes</small></p>
+          <p class="p-custom" style="margin-bottom: 0.3rem;">Tu primer paso en este laboratorio creativo en familia.</p>
+          <p class="p-semibold" style="margin-bottom: 0;">Incluye:</p>
+          <ul class="list-unstyled text-start benefits-list">
+            <li>✔ <span class="p-semibold">Actividad para experimentar</span></li>
+            <li>✔ <span class="benefit-light">Manualidad creativa</span></li>
+            <li>✔ <span class="benefit-light">Receta divertida para hacer en familia</span></li>
+            <li>✔ <span class="p-semibold">Acceso a mini-videos y guía para padres</span></li>
+            <li>✔ <span class="p-semibold">Entrega quincenal a domicilio</span></li>
+            <li>✔ <span class="benefit-light">Beneficio PequeSwap</span></li>
+            <li>✔ <span class="benefit-light">10% OFF en librerías y jugueterías educativas</span></li>
+          </ul>
+          <a href="#" class="btn btn-dark mt-3">Elegir plan</a>
+        </div>
+      </div>
+
+      <!-- Plan Pro -->
+      <div class="col-md-6 mb-4">
+        <div class="card p-4 h-100 border-primary-custom text-start">
+          <img src="verde.png" class="img-fluid img-rounded my-3" alt="Plan Pro">
+          <h5 style="text-transform: none;">Grandes inventores</h5>
+          <p class="display-6" style="color: #1D1D1D; font-weight: 400;">$55.000 <small>/ mes</small></p>
+          <p class="p-custom" style="margin-bottom: 0.3rem;">Animate a más, explorá y creá con materiales para armar.</p>
+          <p class="p-semibold" style="margin-bottom: 0;">Incluye:</p>
+          <ul class="list-unstyled text-start benefits-list">
+            <li>✔ <span class="p-bold">Actividad para experimentar</span></li>
+            <li>✔ <span class="p-bold">Manualidad creativa</span></li>
+            <li>✔ <span class="benefit-light">Receta divertida para hacer en familia</span></li>
+            <li>✔ <span class="p-bold">Acceso a mini-videos y guía para padres</span></li>
+            <li>✔ <span class="p-bold">Entrega quincenal a domicilio</span></li>
+            <li>✔ <span class="p-bold">Beneficio PequeSwap</span></li>
+            <li>✔ <span class="benefit-light">10% OFF en librerías y jugueterías educativas</span></li>
+          </ul>
+          <a href="#" class="btn btn-dark mt-3">Elegir plan</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- PLANES DE SUSCRIPCIÓN DETALLE -->
 
 <!-- FAQ -->
 <section class="text-center" style="background-color: #FFF5F7; font-family: 'Poppins', sans-serif; padding-top: 90px; padding-bottom: 90px;">
@@ -192,31 +250,29 @@
       <!-- Card 2 -->
       <div class="col-md-4 mb-5 d-flex flex-column align-items-center text-center">
      <img src="envio.png" alt="Miembro 2" class="mb-3" style="max-width: 300px; height: auto; display: block; margin: 0 auto;">
-        <h5>¿Cómo son los envíos?</h5>
+        <h5>¿Cómo funcionan los envíos?</h5>
         <p class="p-custom">Enviamos a todo el país cada 15 días. Si vivís en AMBA, llega en 48 hs hábiles. En el resto, puede demorar un poco más.</p>
       </div>
       <!-- Card 3 -->
       <div class="col-md-4 mb-5 d-flex flex-column align-items-center text-center">
 <img src="cancelar.png" alt="Miembro 3" class="mb-3" style="max-width: 300px; height: auto; display: block; margin: 0 auto;">
-        <h5>¿Puedo cambiar de plan o cancelarlo?</h5>
-        <p class="p-custom">Sí, podés hacerlo desde tu cuenta en cualquier momento. Sin complicaciones, con total libertad y sin cargos extra.</p>
+        <h5>¿Cómo cambio o cancelo mi plan?</h5>
+        <p class="p-custom">Podés hacerlo desde tu cuenta en cualquier momento. Sin complicaciones, con total libertad y sin cargos extra.</p>
       </div>
     </div>
   </div>
 </section>
 <!-- FAQ -->
 
-
 <!-- CTA: Llamado a la acción final -->
 <section class="section-spacing text-center my-5" style="padding: 100px 20px;">
   <div style="max-width: 800px; margin: 0 auto;">
-    <h2 class="h2-custom" style="color: #1D1D1D;">Convertí tu casa en el lugar donde las ideas cobran vida.</h2>
+    <h2 class="h2-custom" style="color: #FF0042;">Convertí tu casa en el lugar donde las ideas cobran vida.</h2>
     <p class="p-custom">¿Listo para empezar?</p>
-    <a href="#" class="btn btn-cta mt-4">Quiero este kit</a>
+    <a href="#" class="btn btn-dark">Quiero este kit</a>
   </div>
 </section>
 <!-- /CTA -->
-
 
 <!-- FOOTER: Pie de página -->
 <footer class="text-center py-4" style="background-color: #FFF5F7;">
