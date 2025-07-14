@@ -1,21 +1,404 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><!--NO TOCAR-->
-<!--Modificar Título de página-->    
-<title>KidKit - Zelaznik Maia</title>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Configuración básica del documento -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantilla Visible - Belluccia 3</title>
 
-<!--NO TOCAR--><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"></head><body><main><div class="container d-flex flex-column align-items-center justify-content-center" style="height: 100vh; width: 100%;"><!--NO TOCAR-->
+    <!-- Tipografía desde Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,700&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
 
+    <link href="https://fonts.googleapis.com/css2?family=Anybody:wght@700&display=swap" rel="stylesheet">
 
-    <h3>Entrega Belluccia 3</h3>
-    <h6>Maia Zelaznik</h6>
-    <!--Insertar link debajo-->
-    <a href="plantilla.html">
-    <button type="button" class="btn btn-primary my-2">Plantilla original</button></a>
-    <!--Insertar link debajo-->
-    <a href="home.html">
-    <button type="button" class="btn btn-primary my-2">Página Home</button></a>
-    <!--Insertar link debajo-->
-    <a href="detalleplan3.html">
-    <button type="button" class="btn btn-primary my-2">Página detalle</button></a>
-        
+    <!-- Framework CSS de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
 
-<!--NO TOCAR--></div></main></body><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script></html>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- NAVBAR: Menú de navegación fijo superior -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <!-- Logo o nombre del sitio con enlace al hero de home -->
+    <a href="index.html#hero" class="navbar-brand">
+      <img src="Logo.svg" class="logo" alt="KidKit Logo">
+    </a>
+    <!-- Botón para mostrar menú en mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Ítems del menú -->
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link active" href="#">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#kits">Kits</a></li>
+        <li class="nav-item"><a class="nav-link" href="#suscripcion">Suscripción</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- /NAVBAR -->
+
+<!-- HERO: Sección de portada con llamado a la acción -->
+<section id="hero" class="section-spacing container d-flex align-items-center justify-content-between" style="min-height: 100vh; padding-top: 100px;">
+  <div class="row align-items-center">
+    <!-- Imagen a la izquierda ahora -->
+    <div class="col-lg-6 order-lg-1 order-2 text-center">
+      <img src="hero.png" class="img-fluid img-rounded" alt="Imagen Hero">
+    </div>
+    <!-- Texto a la derecha ahora -->
+    <div class="col-lg-6 order-lg-2 order-1">
+      <h1 class="h1-custom">La creatividad se instala en casa</h1>
+      <p class="p-custom">
+        <span class="medium">
+          Cada 15 días, llega una caja que despierta la imaginación y propone jugar en familia.
+        </span>
+        <span class="bold">
+          Elegí tu kit, suscribite y empezá a experimentar.
+        </span>
+      </p>
+      <div class="d-flex gap-3 mt-4">
+        <a href="#" class="btn btn-dark">Ver kits</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /HERO -->
+
+<!-- SERVICES: Servicios o funcionalidades -->
+<section class="section-spacing container text-center">
+  <div class="row">
+    <!-- Cada columna es una tarjeta de servicio -->
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 p-4 card-sin-fondo">
+        <img src="recibiscaja.png" class="mb-3" alt="Servicio">
+        <h5>Elegís tu kit</h5>
+       <p class="p-custom"><span class="p-semibold">Es fácil y rápido.</span> Elegís tu plan, completás tus datos y ya sos parte de este laboratorio creativo.</p>
+      </div>
+    </div>
+    <!-- Cada columna es una tarjeta de servicio -->
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 p-4 card-sin-fondo">
+        <img src="buscaskit.png" class="mb-3" alt="Servicio">
+        <h5>Recibís tu caja.</h5>
+       <p class="p-custom"><span class="p-semibold">Cada 15 días,</span> un nuevo kit llega directo a tu puerta con materiales reales y propuestas divertidas.</p>
+      </div>
+    </div>
+    <!-- Cada columna es una tarjeta de servicio -->
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 p-4 card-sin-fondo">
+        <img src="jugarfamilia.png" class="mb-3" alt="Servicio">
+        <h5>Jugás y creás en familia.</h5>
+        <p class="p-custom"><span class="p-semibold">Explorá en familia</span> con actividades de arte, ciencia y cocina pensadas para mentes curiosas.</p>
+      </div>
+    </div>
+    <!-- ... repetir estructura para más servicios ... -->
+  </div>
+</section>
+<!-- /SERVICES -->
+
+<!-- SECCIÓN C: Texto izquierda, imagen derecha -->
+<section class="section-spacing container">
+  <div class="row align-items-center">
+    <!-- Columna de imagen -->
+    <div class="col-lg-6 text-center mt-4 mt-lg-0 order-1 order-lg-2">
+      <img src="libro.png" class="img-fluid img-rounded" alt="Imagen ilustrativa">
+    </div>
+    <!-- Columna de texto -->
+    <div class="col-lg-6 order-2 order-lg-1">
+      <h2 class="h2-anybody">Estimula la creatividad</h2>
+      <p class="lead-custom">
+        <span class="p-semibold">Invita a imaginar, crear y resolver mientras los chicos juegan.</span>
+        Cada actividad promueve la curiosidad y el pensamiento creativo. Para desarrolla habilidades prácticas con propuestas diseñadas para manos pequeñas y mentes inquietas.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section-spacing container no-underline"></section>
+
+<!-- SECCIÓN B: Imagen izquierda, texto derecha -->
+<section class="section-spacing container">
+  <div class="row align-items-center">
+    <div class="col-lg-6 text-center mb-4 mb-lg-0">
+      <img src="familia.png" class="img-fluid img-rounded" alt="Imagen ilustrativa">
+    </div>
+    <div class="col-lg-6">
+      <h2 class="h2-anybody">Aprendizaje en familia</h2>
+      <p class="lead-custom">
+        Diseñado para chicos y chicas de 3 a 8 años. Cada kit incluye una guía para adultos que transforma el juego en una experiencia compartida, significativa y simple de seguir, 
+        <span class="p-semibold">fortaleciendo vínculos mientras todos se divierten aprendiendo juntos.</span>
+      </p>
+      <a href="#" class="btn btn-primary mt-3">Empezar a jugar</a>
+    </div>
+  </div>
+</section>
+
+<!-- PLANES DE SUSCRIPCIÓN -->
+<section id="kits" class="section-spacing text-center" style="background-color: #FF0042; font-family: 'Poppins', sans-serif; margin-top: 200px;">
+  <div class="container">
+    <h2 class="h2-custom" style="color: #FFF5F7;">Explorá los kits disponibles</h2>
+    <div class="row mt-5">
+
+      <!-- Plan Básico -->
+      <div class="col-md-4 mb-4">
+        <div class="card p-4 h-100 text-start" style="font-family: 'Poppins', sans-serif;">
+          <img src="verde.png" class="img-fluid img-rounded my-3" alt="Plan Básico">
+          <h5 style="text-transform: none;">Mini científicos</h5>
+          <p class="display-6" style="font-family: 'Poppins', sans-serif; color: #1D1D1D;">
+            $49.000 <small style="color: #1D1D1D;">/ mes</small>
+          </p>
+          <p class="p-custom" style="font-family: 'Poppins', sans-serif;">Tu primer paso en este laboratorio creativo en familia.<br><strong>Incluye:</strong></p>
+          <ul class="list-unstyled mx-auto benefits-list" style="max-width: 250px; font-family: 'Poppins', sans-serif;">
+            <li>✔ <span class="p-semibold">Actividad para experimentar</span></li>
+            <li>✔ Manualidad creativa</li>
+            <li>✔ Receta divertida para hacer en familia</li>
+            <li>✔ <span class="p-semibold">Acceso a mini-videos y guía para padres</span></li>
+            <li>✔ <span class="p-semibold">Entrega quincenal a domicilio</span></li>
+            <li>✔ Beneficio PequeSwap</li>
+            <li>✔ 10% OFF en librerías y jugueterías educativas</li>
+          </ul>
+          <a href="#" class="btn mt-3" style="background-color: #0C826A; color: #fff; font-family: 'Poppins', sans-serif;">Elegir plan</a>
+        </div>
+      </div>
+
+      <!-- Plan Pro -->
+      <div class="col-md-4 mb-4">
+        <div class="card p-4 h-100 border-primary-custom text-start" style="font-family: 'Poppins', sans-serif;">
+          <img src="violeta.png" class="img-fluid img-rounded my-3" alt="Plan Pro">
+          <h5 style="text-transform: none;">Grandes inventores</h5>
+          <p class="display-6" style="font-family: 'Poppins', sans-serif; color: #1D1D1D;">
+            $55.000 <small style="color: #1D1D1D;">/ mes</small>
+          </p>
+          <p class="p-custom" style="font-family: 'Poppins', sans-serif;">Animate a más, explorá y creá con materiales para armar.<br><strong>Incluye:</strong></p>
+          <ul class="list-unstyled mx-auto benefits-list" style="max-width: 250px; font-family: 'Poppins', sans-serif;">
+            <li>✔ <span class="p-bold">Actividad para experimentar</span></li>
+            <li>✔ <span class="p-bold">Manualidad creativa</span></li>
+            <li>✔ Receta divertida para hacer en familia</li>
+            <li>✔ <span class="p-bold">Acceso a mini-videos y guía para padres</span></li>
+            <li>✔ <span class="p-bold">Entrega quincenal a domicilio</span></li>
+            <li>✔ <span class="p-bold">Beneficio PequeSwap</span></li>
+            <li>✔ 10% OFF en librerías y jugueterías educativas</li>
+          </ul>
+          <a href="#" class="btn mt-3" style="background-color: #FF0042; color: #fff; font-family: 'Poppins', sans-serif;">Elegir plan</a>
+        </div>
+      </div>
+
+      <!-- Plan Full -->
+      <div class="col-md-4 mb-4">
+        <div class="card p-4 h-100 text-start" style="font-family: 'Poppins', sans-serif;">
+          <img src="celeste.png" class="img-fluid img-rounded my-3" alt="Plan Full">
+          <h5 style="text-transform: none;">Mentes brillantes</h5>
+          <p class="display-6" style="font-family: 'Poppins', sans-serif; color: #1D1D1D;">
+            $60.000 <small style="color: #1D1D1D;">/ mes</small>
+          </p>
+          <p class="p-custom" style="font-family: 'Poppins', sans-serif;">La experiencia completa, con acceso a beneficios extra en comunidad.<br><strong>Incluye:</strong></p>
+          <ul class="list-unstyled mx-auto benefits-list" style="max-width: 250px; font-family: 'Poppins', sans-serif;">
+            <li>✔ <span class="p-bold">Actividad para experimentar</span></li>
+            <li>✔ <span class="p-bold">Manualidad creativa</span></li>
+            <li>✔ <span class="p-bold">Receta divertida para hacer en familia</span></li>
+            <li>✔ <span class="p-bold">Acceso a mini-videos y guía para padres</span></li>
+            <li>✔ <span class="p-bold">Entrega quincenal a domicilio</span></li>
+            <li>✔ <span class="p-bold">Beneficio PequeSwap</span></li>
+            <li>✔ <span class="p-bold">10% OFF en librerías y jugueterías educativas</span></li>
+          </ul>
+          <a href="detalleplan3.html" class="btn mt-3" style="background-color: #00DFF6; color: #fff; font-family: 'Poppins', sans-serif;">Elegir plan</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- /PLANES DE SUSCRIPCIÓN -->
+
+<!-- /BAJADITA PLANES -->
+<section class="text-center" style="background-color: #FF0042; font-family: 'Poppins', sans-serif; margin-top: -50px; margin-bottom: 20px;">
+    <h2 class="h2-custom medium-h2" style="color: #FFF5F7; font-size: 1.8rem;">
+      Con actividades familiares para inventar, mezclar y jugar en tu propio laboratorio creativo en casa.
+    </h2>
+      </section>
+<!-- /BAJADITA PLANES -->
+
+<!-- TESTIMONIOS -->
+<section class="text-center" style="background-color: #FFF5F7; font-family: 'Poppins', sans-serif; padding-top: 90px; padding-bottom: 90px;">
+  <div class="container">
+    <h2 class="h2-custom medium-h2 mb-5" style="color: #1D1D1D; font-size: 2.4rem;">
+      Familias que ya recibieron su kit.
+    </h2>
+
+    <div class="row">
+      <!-- Card 1 -->
+      <div class="col-md-4 mb-5 d-flex flex-column align-items-center text-center">
+        <img src="user01.png" class="mb-3" alt="Miembro 1" style="width: 350px; height: auto; border-radius: 50%;">
+        <h5>Perfecto para días nublados</h5>
+        <p class="p-custom">"El kit llegó justo a tiempo para un sábado lluvioso. Fue como tener un mini laboratorio creativo en casa."</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-md-4 mb-5 d-flex flex-column align-items-center text-center">
+        <img src="user03.png" class="mb-3" alt="Miembro 2" style="width: 350px; height: auto; border-radius: 50%;">
+        <h5>El kit celeste es un golazo</h5>
+        <p class="p-custom">"La guía para adultos es un golazo. Te da ideas para jugar en serio con tus hijos. ¡Mi nena se sintió una chef de verdad!"</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-md-4 mb-5 d-flex flex-column align-items-center text-center">
+        <img src="user02.png" class="mb-3" alt="Miembro 3" style="width: 350px; height: auto; border-radius: 50%;">
+        <h5>Estamos encantados</h5>
+        <p class="p-custom">"El sistema PequeSwap nos pareció genial. Intercambiamos el kit y fue como recibir uno nuevo."</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- TESTIMONIOS -->
+
+<!-- SECCIÓN C: Texto izquierda, imagen derecha -->
+<section class="section-spacing container">
+  <div class="row align-items-center">
+    <!-- Columna de texto -->
+    <div class="col-lg-6">
+      <h2 class="h2-anybody">¡Arte con las manos y la imaginación!</h2>
+      <p class="lead-custom">
+        <span class="p-semibold">Cada kit incluye una propuesta de arte para crear con materiales reales.</span>
+        Diseñadas para que los chicos recorten, peguen, pinten y construyan, usando sus ideas, sus manos y su estilo. 
+      </p>
+    </div>
+    <!-- Columna de imagen -->
+    <div class="col-lg-6 text-center mt-4 mt-lg-0">
+      <img src="manualidades.png" class="img-fluid img-rounded" alt="Imagen ilustrativa">
+    </div>
+  </div>
+</section>
+<section class="section-spacing container no-underline"></section>
+<!-- SECCIÓN C: Texto izquierda, imagen derecha -->
+
+<!-- SECCIÓN B: Imagen izquierda, texto derecha -->
+<section class="section-spacing container">
+  <div class="row align-items-center">
+    <!-- Columna de imagen -->
+    <div class="col-lg-6 text-center mb-4 mb-lg-0 order-2 order-lg-1">
+      <img src="cocina.png" class="img-fluid img-rounded" alt="Imagen ilustrativa">
+    </div>
+    <!-- Columna de texto -->
+    <div class="col-lg-6 order-1 order-lg-2">
+      <h2 class="h2-anybody">¡Cocinamos juntos, nos divertimos más!</h2>
+      <p class="lead-custom">
+        <span class="p-semibold">Una receta ilustrada y fácil en cada caja</span>
+        para que grandes y chicos preparen algo rico sin complicaciones. Ingredientes seguros, pasos simples y mucho espacio para ensuciarse y reír.
+      </p>
+      <a href="#" class="btn btn-primary mt-3">Ver kits</a>
+    </div>
+  </div>
+</section>
+<!-- SECCIÓN B: Imagen izquierda, texto derecha -->
+
+<!-- SECCIÓN C: Texto izquierda, imagen derecha -->
+<section class="section-spacing container">
+  <div class="row align-items-center">
+    <!-- Columna de texto -->
+    <div class="col-lg-6">
+      <h2 class="h2-anybody">Ciencia casera paramentes curiosas</h2>
+      <p class="lead-custom">
+                Descubrí reacciones, colores y sorpresas con experimentos diseñados especialmente para la edad. 
+        <span class="p-semibold">Fáciles, seguros y pensados para asombrarse en familia.</span>
+      </p>
+    </div>
+    <!-- Columna de imagen -->
+    <div class="col-lg-6 text-center mt-4 mt-lg-0">
+      <img src="ciencia.png" class="img-fluid img-rounded" alt="Imagen ilustrativa">
+    </div>
+  </div>
+</section>
+<section class="section-spacing container no-underline"></section>
+<!-- SECCIÓN C: Texto izquierda, imagen derecha -->
+
+<!-- SECCIÓN B: Imagen izquierda, texto derecha -->
+<section class="section-spacing peque-section full-width" style="background-color: #FF0042;">
+  <div style="max-width: 1140px; margin: 0 auto; padding: 0 20px;">
+    <div class="row align-items-center">
+      <div class="col-lg-6 text-center mb-4 mb-lg-0">
+        <img src="swap.gif" class="img-fluid img-rounded" alt="Imagen ilustrativa">
+      </div>
+      <div class="col-lg-6">
+        <h2 class="h2-anybody" style="color: #FFF5F7;">Beneficio PequeSwap para intercambiar tus kits</h2>
+        <p class="lead-custom" style="color: #FFF5F7;">
+          Cuando terminás tu kit, podés llevarlo a una librería o juguetería adherida y cambiarlo por uno nuevo.  
+          <span class="p-semibold" style="color: #FFF5F7;">Así, seguís creando sin acumular y descubrís siempre algo distinto.</span>
+        </p>
+        <a href="#" class="btn mt-3" style="background-color: #FFF5F7; color: #FF0042; border: none;">Ver sucursales</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- SECCIÓN B: Imagen izquierda, texto derecha -->
+
+<!-- CONTACT FORM: Formulario de contacto -->
+<section id="contacto" class="section-spacing container">
+  <div class="row align-items-center">
+    <!-- FORMULARIO A LA IZQUIERDA -->
+    <div class="col-lg-6 order-1 order-lg-1 mb-5 mb-lg-0">
+      <h2 class="h2-custom">¿Tenés dudas?</h2>
+      <p class="p-custom">Envía un mensaje directamente desde la web.</p>
+      <form>
+        <div class="mb-3">
+          <input type="text" class="form-control" placeholder="Tu nombre">
+        </div>
+        <div class="mb-3">
+          <input type="email" class="form-control" placeholder="Tu email">
+        </div>
+        <div class="mb-3">
+          <textarea class="form-control" rows="4" placeholder="Tu mensaje"></textarea>
+        </div>
+        <button type="submit" class="btn btn-dark w-100">Enviar Mensaje</button>
+      </form>
+    </div>
+
+    <!-- IMAGEN A LA DERECHA -->
+    <div class="col-lg-6 order-2 order-lg-2 text-center">
+      <img src="mapa.png" alt="Mapa o imagen decorativa" class="img-fluid img-rounded">
+    </div>
+  </div>
+</section>
+
+<!-- CTA: Llamado a la acción final -->
+<section class="section-spacing text-center my-5" style="padding: 100px 20px;">
+  <div style="max-width: 800px; margin: 0 auto;">
+    <h2 class="h2-custom" style="color: #FF0042;">Convertí tu casa en el lugar donde las ideas cobran vida.</h2>
+    <p class="p-custom">¿Listo para empezar?</p>
+    <a href="#" class="btn btn-dark mt-4">Explorar kits</a>
+  </div>
+</section>
+<!-- /CTA -->
+
+<!-- FOOTER: Pie de página -->
+<footer class="text-center py-4" style="background-color: #FFF5F7;">
+  <div class="container">
+    <p class="p-custom" style="color: #1D1D1D; font-family: 'Poppins', sans-serif; font-weight: 400;">
+      © Copyright 2025, All Rights Reserved
+    </p>
+  </div>
+</footer>
+<!-- FOOTER: Pie de página -->
+
+<!-- Bootstrap Bundle JS (incluye Popper) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+
+<!-- Script personalizado para cambiar el navbar al hacer scroll -->
+<script>
+window.addEventListener('scroll', function() {
+  const navbar = document.querySelector('.navbar');
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+});
+</script>
+
+<!-- Scripts adicionales -->
+<script src="scripts.js"></script>
+</body>
+</html>
