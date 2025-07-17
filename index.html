@@ -1,21 +1,224 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><!--NO TOCAR-->
-<!--Modificar Título de página-->    
-<title>KidKit - Zelaznik Maia</title>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KidKit - Zelaznik Maia</title>
 
-<!--NO TOCAR--><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"></head><body><main><div class="container d-flex flex-column align-items-center justify-content-center" style="height: 100vh; width: 100%;"><!--NO TOCAR-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 
+  <style>
+    body {
+      background-color: #FFF5F7 !important;
+      overflow-x: hidden;
+      user-select: none;
+    }
 
-    <h3>Entrega Belluccia 3</h3>
-    <h6>Maia Zelaznik</h6>
-    <!--Insertar link debajo-->
-    <a href="plantilla.html">
-    <button type="button" class="btn btn-primary my-2">Plantilla original</button></a>
-    <!--Insertar link debajo-->
-    <a href="home.html">
-    <button type="button" class="btn btn-primary my-2">Página Home</button></a>
-    <!--Insertar link debajo-->
-    <a href="detalleplan3.html">
-    <button type="button" class="btn btn-primary my-2">Página detalle</button></a>
-        
+    button, .btn-primary {
+      user-select: text !important;
+      cursor: pointer;
+    }
 
-<!--NO TOCAR--></div></main></body><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script></html>
+    .btn-primary {
+      background-color: #FF0042 !important;
+      border-color: #FF0042 !important;
+      color: #FFF5F7 !important;
+      border-radius: 50px !important;
+      width: 180px !important;
+      text-align: center;
+    }
+
+    .btn-primary:hover, .btn-primary:focus {
+      background-color: #e0003a !important;
+      border-color: #e0003a !important;
+      color: #FFF5F7 !important;
+    }
+
+    .full-height {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Reducimos el padding horizontal para imagen y texto */
+    .col-lg-3.text-col, .col-lg-3.img-col {
+      padding-left: 0.25rem !important;
+      padding-right: 0.25rem !important;
+    }
+
+    .left-image {
+      /* Tamaño original en desktop, sin max-width para que ocupe su tamaño natural */
+      max-height: 60vh;
+      object-fit: contain;
+      width: auto; /* Para que mantenga proporción natural */
+      height: auto;
+    }
+
+    /* Por defecto ocultamos la imagen mobile */
+    .mobile-img {
+      display: none;
+    }
+
+    @keyframes miniBounce {
+      0% {
+        transform: translate(-50%, -50%) scale(0.5);
+      }
+      70% {
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    @media (max-width: 991px) {
+      .full-height {
+        height: auto;
+        padding: 2rem 1rem;
+        flex-direction: column;
+      }
+
+      .left-image {
+        margin-bottom: 1.5rem;
+        max-width: 80%; /* 20% menos que tamaño natural */
+        height: auto;
+      }
+
+      /* En mobile, dejamos padding default para columnas para que no queden pegadas */
+      .col-lg-3.text-col, .col-lg-3.img-col {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+      }
+
+      /* En mobile mostramos la imagen mobile y ocultamos la desktop */
+      .desktop-img {
+        display: none;
+      }
+      .mobile-img {
+  display: block;
+  max-width: 50%;  /* achica la imagen al 70% del ancho disponible */
+  height: auto;    /* para que mantenga proporción */
+      }
+    }
+
+    #hero {
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero img.floating {
+      animation: miniBounce 0.4s ease forwards;
+      position: absolute;
+      max-width: 65px;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+<body>
+  <main id="hero">
+    <div class="container">
+      <div class="row full-height gx-1">
+        <div class="col-lg-3 d-none d-lg-block"></div>
+
+        <!-- Imagen -->
+        <div class="col-lg-3 img-col d-flex align-items-center justify-content-center">
+          <!-- Imagen desktop -->
+          <img src="indice.png" alt="Imagen BuscasKit" class="left-image desktop-img" draggable="false" />
+          <!-- Imagen mobile -->
+          <img src="indicemobile.png" alt="Imagen BuscasKit Mobile" class="left-image mobile-img" draggable="false" />
+        </div>
+
+        <!-- Texto + botones -->
+        <div class="col-lg-3 text-col d-flex flex-column align-items-center justify-content-center text-center">
+          <h3>Entrega Belluccia 3</h3>
+          <h6>Maia Zelaznik</h6>
+          <a href="plantilla.html">
+            <button type="button" class="btn btn-primary my-2">Plantilla original</button>
+          </a>
+          <a href="entrega.html">
+            <button type="button" class="btn btn-primary my-2">Página Home</button>
+          </a>
+          <a href="detalle.html">
+            <button type="button" class="btn btn-primary my-2">Página detalle</button>
+          </a>
+        </div>
+
+        <div class="col-lg-3 d-none d-lg-block"></div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const hero = document.getElementById("hero");
+
+      const images = [
+        'pop01.png',
+        'pop02.png',
+        'pop04.png',
+        'pop05.png',
+        'pop06.png',
+        'pop07.png',
+        'pop08.png',
+        'pop09.png'
+      ];
+
+      let isMouseDown = false;
+
+      function createFloatingImage(x, y, duration) {
+        const randomIndex = Math.floor(Math.random() * images.length);
+        const randomImage = images[randomIndex];
+
+        const img = document.createElement("img");
+        img.src = randomImage;
+        img.classList.add("floating");
+
+        const offsetX = x - hero.getBoundingClientRect().left;
+        const offsetY = y - hero.getBoundingClientRect().top;
+
+        img.style.left = offsetX + "px";
+        img.style.top = offsetY + "px";
+
+        hero.appendChild(img);
+
+        setTimeout(() => {
+          img.remove();
+        }, duration);
+      }
+
+      const allImages = hero.querySelectorAll("img");
+      allImages.forEach(img => {
+        img.setAttribute("draggable", "false");
+        img.addEventListener("dragstart", e => e.preventDefault());
+        img.addEventListener("mousedown", e => e.preventDefault());
+      });
+
+      hero.addEventListener("click", function (e) {
+        createFloatingImage(e.clientX, e.clientY, 250);
+      });
+
+      hero.addEventListener("mousedown", function () {
+        isMouseDown = true;
+      });
+
+      hero.addEventListener("mouseup", function () {
+        isMouseDown = false;
+      });
+
+      hero.addEventListener("mouseleave", function () {
+        isMouseDown = false;
+      });
+
+      hero.addEventListener("mousemove", function (e) {
+        if (isMouseDown) {
+          createFloatingImage(e.clientX, e.clientY, 150);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

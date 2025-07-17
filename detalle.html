@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Configuración básica del documento -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KidKit</title>
+
+    <!-- Tipografía desde Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,700&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Anybody:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Framework CSS de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <!-- FAVICON -->
+    <link rel="icon" href="favicon.png" type="image/png" />
+
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <style>
+      /* CSS extra necesario para canvas y hero */
+      #hero {
+        position: relative; /* para que canvas se posicione relativo al hero */
+        overflow: visible; /* que no se corte contenido absoluto */
+      }
+      #crayonsCanvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        pointer-events: none; /* no interfiere con clicks */
+        z-index: 10;
+        width: 100%;
+        height: 100%;
+      }
+      /* Animación ejemplo para miniBounce */
+      @keyframes miniBounce {
+        0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.5; }
+        50% { transform: translate(-50%, -60%) scale(1); opacity: 1; }
+        100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+      }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <!-- Logo o nombre del sitio con enlace al hero de home -->
+    <a href="entrega.html" class="navbar-brand">
+      <img src="Logo.svg" class="logo" alt="KidKit Logo">
+    </a>
+    <!-- Botón para mostrar menú en mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Ítems del menú -->
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <!-- Inicio va a la home completa -->
+        <li class="nav-item"><a class="nav-link active" href="entrega.html">Inicio</a></li>
+        <!-- Los demás van a las secciones del index -->
+        <li class="nav-item"><a class="nav-link" href="entrega.html#kits">Kits</a></li>
+        <li class="nav-item"><a class="nav-link" href="entrega.html#suscripcion">Suscripción</a></li>
+        <li class="nav-item"><a class="nav-link" href="entrega.html#contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO: Sección de portada con llamado a la acción -->
+<section id="hero" class="section-spacing container d-flex align-items-center justify-content-between hero-pagina-detalle" style="min-height: 100vh; padding-top: 100px; position: relative; overflow: hidden; user-select: none;">
+
+  <!-- Canvas posicionado de fondo -->
+  <canvas id="crayonsCanvas" style="position: absolute; top: 0; left: 0; pointer-events: none; z-index: 0;"></canvas>
+
+  <style>
+    /* Rebote tipo home, sin desvanecer */
+    @keyframes miniBounce {
+      0% {
+        transform: translate(-50%, -50%) scale(1.3);
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+  </style>
+
+  <div class="row align-items-center" style="position: relative; z-index: 1; width: 100%;">
+    <!-- Imagen izquierda -->
+    <div class="col-lg-6 order-lg-1 order-2 text-center">
+      <img src="cajaceleste.png" class="img-fluid img-rounded" alt="Imagen Hero" style="max-width: 120%;" draggable="false" ondragstart="return false;" onmousedown="return false;">
+    </div>
+    <!-- Texto derecha -->
+    <div class="col-lg-6 order-lg-2 order-1">
+      <h1 class="h1-custom" style="color: #FF0042;">El kit completo para mentes brillantes</h1>
+      <h2 class="h2-custom medium-h2 mb-2" style="color: #1D1D1D; font-size: 2.3rem; font-family: 'Poppins', sans-serif; font-weight: 500;">
+        $60.000 / mes
+      </h2>
+      <p class="p-custom">
+        <span class="medium">
+          Ciencia, arte y recetas fáciles para hacer en familia. Además accedés a <span class="bold">beneficios exclusivos:</span> intercambio de kits, descuentos en jugueterías educativas y más.
+        </span>
+      </p>
+      <div class="d-flex gap-3 mt-4">
+        <a href="#" class="btn btn-dark">Empezar ahora</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const hero = document.getElementById("hero");
+
+      const images = [
+        'detalle01.png',
+        'detalle02.png',
+        'detalle03.png',
+        'detalle04.png'
+      ];
+
+      let isMouseDown = false;
+
+      function createFloatingImage(x, y, duration) {
+        const randomIndex = Math.floor(Math.random() * images.length);
+        const randomImage = images[randomIndex];
+
+        const img = document.createElement("img");
+        img.src = randomImage;
+        img.style.position = "absolute";
+        img.style.maxWidth = "60px";
+        img.style.pointerEvents = "none";
+        img.style.zIndex = 9999;
+        img.style.transform = "translate(-50%, -50%)";
+        img.style.animation = "miniBounce 0.4s ease forwards";
+
+        const offsetX = x - hero.getBoundingClientRect().left;
+        const offsetY = y - hero.getBoundingClientRect().top;
+        img.style.left = offsetX + "px";
+        img.style.top = offsetY + "px";
+
+        hero.appendChild(img);
+
+        setTimeout(() => {
+          img.remove();
+        }, duration);
+      }
+
+      // Bloquear arrastre de imágenes
+      const allImages = hero.querySelectorAll("img");
+      allImages.forEach(img => {
+        img.setAttribute("draggable", "false");
+        img.addEventListener("dragstart", e => e.preventDefault());
+        img.addEventListener("mousedown", e => e.preventDefault());
+      });
+
+      // Click simple: imagen visible por 250 ms
+      hero.addEventListener("click", function (e) {
+        createFloatingImage(e.clientX, e.clientY, 250);
+      });
+
+      hero.addEventListener("mousedown", function () {
+        isMouseDown = true;
+      });
+
+      hero.addEventListener("mouseup", function () {
+        isMouseDown = false;
+      });
+
+      hero.addEventListener("mouseleave", function () {
+        isMouseDown = false;
+      });
+
+      // Estela: imágenes visibles por 150 ms
+      hero.addEventListener("mousemove", function (e) {
+        if (isMouseDown) {
+          createFloatingImage(e.clientX, e.clientY, 150);
+        }
+      });
+    });
+  </script>
+
+</section>
+<!-- HERO: Fin -->
+ 
+
+<!-- QUÉ INCLUYE -->
+<section class="text-center" style="background-color: #FFF5F7; font-family: 'Poppins', sans-serif; padding-top: 90px; padding-bottom: 90px;">
+  <div class="container">
+    <h2 class="h2-custom medium-h2 mb-5" style="color: #1D1D1D; font-size: 2.4rem;">
+      ¿Qué incluye este plan?
+    </h2>
+
+    <div class="row">
+      <!-- Card 1 -->
+      <div class="col-md-4 mb-5 d-flex flex-column align-items-center text-center">
+        <img src="detalleexp.png" alt="Miembro 1" class="mb-3" style="max-width: 300px; height: auto; display: block; margin: 0 auto;">
+        <h5>Actividad para experimentar</h5>
+        <p class="p-custom">Ciencia simple y sorprendente.</p>
+      </div>
+      <!-- Card 2 -->
+      <div class="col-md-4 mb-5 d-flex flex-column align-items-center text-center">
+     <img src="detallemanualidad.png" alt="Miembro 2" class="mb-3" style="max-width: 300px; height: auto; display: block; margin: 0 auto;">
+        <h5>Manualidad creativa</h5>
+        <p class="p-custom">Para crear en familia.</p>
+      </div>
+      <!-- Card 3 -->
+      <div class="col-md-4 mb-5 d-flex flex-column align-items-center text-center">
+<img src="detallecocina.png" alt="Miembro 3" class="mb-3" style="max-width: 300px; height: auto; display: block; margin: 0 auto;">
+        <h5>Receta fácil y divertida</h5>
+        <p class="p-custom">Para hacer en familia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- QUÉ INCLUYE -->
+
+<!-- APRENDIZAJE QUE TRASCIENDE: Texto izquierda, imagen derecha -->
+<section class="section-spacing container hero-pagina-detalle aprendizajes-section">
+  <div class="row align-items-center">
+    <!-- Texto a la izquierda -->
+    <div class="col-lg-6 order-lg-1 order-2 ps-3 ps-lg-5">
+      <h2 class="h2-anybody" style="color: #1D1D1D;">Aprendizajes que trascienden la caja</h2>
+      <p class="lead-custom" style="color: #1D1D1D;">
+        <span class="p-semibold">Este plan es ideal para quienes disfrutan jugar, ensuciarse, cocinar, explorar y crear.</span>
+        Recomendado para chicos y chicas de 3 a 8 años, acompañados por adultos con ganas de compartir momentos inolvidables.
+      </p>
+      <a href="#" class="btn btn-dark mt-3">Empezar a jugar</a>
+    </div>
+    <!-- Imagen a la derecha -->
+    <div class="col-lg-6 order-lg-2 order-1 text-center mb-4 mb-lg-0">
+      <img src="caja.png" class="img-fluid img-rounded" alt="Imagen ilustrativa">
+    </div>
+  </div>
+</section>
+<!-- APRENDIZAJE QUE TRASCIENDE: Texto izquierda, imagen derecha -->
+
+<!-- BENEFICIOS -->
+<section class="text-center beneficios-section" style="background-color: #FFF5F7; font-family: 'Poppins', sans-serif; padding-top: 90px; padding-bottom: 90px;">
+  <div class="container">
+    <h2 class="h2-custom medium-h2 mb-5" style="color: #1D1D1D; font-size: 2.4rem;">
+      Beneficios exclusivos
+    </h2>
+
+    <div class="row">
+      <!-- Card 1 -->
+      <div class="col-md-4 mb-5 d-flex flex-column align-items-center text-center">
+        <img src="quincenal.png" alt="Entrega quincenal" class="mb-3" style="max-width: 300px; height: auto; display: block; margin: 0 auto;">
+        <h5>Entrega quincenal a tu domicilio</h5>
+        <p class="p-custom">Recibí tu KidKit cada 15 días, directo a tu casa y listo para jugar.</p>
+      </div>
+      <!-- Card 2 -->
+      <div class="col-md-4 mb-5 d-flex flex-column align-items-center text-center">
+        <img src="guia2.png" alt="Guía para padres" class="mb-3" style="max-width: 300px; height: auto; display: block; margin: 0 auto;">
+        <h5>Acceso a guía para padres</h5>
+        <p class="p-custom">Con ideas, consejos y orientación paso a paso. También incluye mini videos.</p>
+      </div>
+      <!-- Card 3 -->
+      <div class="col-md-4 mb-5 d-flex flex-column align-items-center text-center">
+        <img src="descuento.png" alt="Descuento en librerías" class="mb-3" style="max-width: 300px; height: auto; display: block; margin: 0 auto;">
+        <h5>10% OFF en librerías y jugueterías</h5>
+        <p class="p-custom">Descuento exclusivo en nuestra red de tiendas educativas participantes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- BENEFICIOS -->
+
+<section class="section-spacing container no-underline"></section>
+
+<!-- TRANSICIÓN UP -->
+<section class="w-100 m-0 p-0">
+  <img src="transicion04.png" class="w-100 d-block" style="display: block; margin: 0; padding: 0;" alt="Transición visual">
+</section>
+<!-- TRANSICIÓN UP -->
+
+<!-- SECCIÓN B: Imagen izquierda, texto derecha -->
+<section class="section-spacing peque-section full-width" style="background-color: #00DFF6;">
+  <div style="max-width: 1140px; margin: 0 auto; padding: 0 20px;">
+    <div class="row align-items-center">
+      <div class="col-lg-6 text-center mb-4 mb-lg-0">
+       <img src="swap2.gif" class="img-fluid img-rounded img-grande" alt="Imagen ilustrativa">
+      </div>
+      <div class="col-lg-6">
+        <h2 class="h2-anybody" style="color: #1D1D1D;">Beneficio PequeSwap para intercambiar tus kits</h2>
+        <p class="lead-custom" style="color: #1D1D1D;">
+          Cuando terminás tu kit, podés llevarlo a una librería o juguetería adherida y cambiarlo por uno nuevo.  
+          <span class="p-semibold" style="color: #1D1D1D;">Así, seguís creando sin acumular y descubrís siempre algo distinto.</span>
+        </p>
+        <a href="#" class="btn mt-3" style="background-color: #1D1D1D; color: #FFF5F7; border: none;">Ver sucursales</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- SECCIÓN B: Imagen izquierda, texto derecha -->
+
+<!-- TRANSICIÓN CIERRE -->
+<section class="w-100 m-0 p-0">
+  <img src="transicion03.png" class="w-100 d-block" style="display: block; margin: 0; padding: 0;" alt="Transición visual">
+</section>
+<!-- TRANSICIÓN CIERRE -->
+
+<!-- PLANES DE SUSCRIPCIÓN DETALLE -->
+<section id="kits-detalle" class="section-spacing text-center" style="font-family: 'Poppins', sans-serif; margin-top: 40px;">
+  <div class="container">
+    <h2 class="h2-custom" style="color: #1D1D1D;">Explorá otros kits disponibles</h2>
+    <div class="row mt-5">
+
+      <!-- Plan Básico -->
+      <div class="col-md-6 mb-4">
+        <div class="card p-4 h-100 text-start" style="background-image: url('fondocardblanco.png'); background-size: cover; background-position: center; background-color: transparent;">
+          <img src="violeta.png" class="img-fluid img-rounded my-3" alt="Plan Básico">
+          <h5 style="text-transform: none;">Mini científicos</h5>
+          <p class="display-6" style="color: #1D1D1D; font-weight: 400;">$49.000 <small>/ mes</small></p>
+          <p class="p-custom" style="margin-bottom: 0.3rem;">Tu primer paso en este laboratorio creativo en familia.</p>
+          <p class="p-semibold" style="margin-bottom: 0;">Incluye:</p>
+          <ul class="list-unstyled text-start benefits-list">
+            <li><span class="tick p-semibold" style="color: #FF0042;">✔</span> <span class="p-semibold">Actividad para experimentar</span></li>
+            <li><span class="tick p-semibold" style="color: #FF0042;">✔</span> <span class="p-semibold">Acceso a mini-videos y guía para padres</span></li>
+            <li><span class="tick p-semibold" style="color: #FF0042;">✔</span> <span class="p-semibold">Entrega quincenal a domicilio</span></li>
+            <li><span class="tick benefit-light" style="color: #FF0042;">✔</span> <span class="benefit-light">Manualidad creativa</span></li>
+            <li><span class="tick benefit-light" style="color: #FF0042;">✔</span> <span class="benefit-light">Receta divertida para hacer en familia</span></li>
+            <li><span class="tick benefit-light" style="color: #FF0042;">✔</span> <span class="benefit-light">Beneficio PequeSwap</span></li>
+            <li><span class="tick benefit-light" style="color: #FF0042;">✔</span> <span class="benefit-light">10% OFF en librerías y jugueterías educativas</span></li>
+          </ul>
+          <a href="#" class="btn btn-dark mt-3">Elegir plan</a>
+        </div>
+      </div>
+
+      <!-- Plan Pro -->
+      <div class="col-md-6 mb-4">
+        <div class="card p-4 h-100 text-start" style="background-image: url('fondocardcentroblanco.png'); background-size: cover; background-position: center; background-color: transparent;">
+          <img src="verde.png" class="img-fluid img-rounded my-3" alt="Plan Pro">
+          <h5 style="text-transform: none;">Grandes inventores</h5>
+          <p class="display-6" style="color: #1D1D1D; font-weight: 400;">$55.000 <small>/ mes</small></p>
+          <p class="p-custom" style="margin-bottom: 0.3rem;">Animate a más, explorá y creá con materiales para armar.</p>
+          <p class="p-semibold" style="margin-bottom: 0;">Incluye:</p>
+          <ul class="list-unstyled text-start benefits-list">
+            <li><span class="tick p-bold" style="color: #FF0042;">✔</span> <span class="p-bold">Actividad para experimentar</span></li>
+            <li><span class="tick p-bold" style="color: #FF0042;">✔</span> <span class="p-bold">Manualidad creativa</span></li>
+            <li><span class="tick p-bold" style="color: #FF0042;">✔</span> <span class="p-bold">Acceso a mini-videos y guía para padres</span></li>
+            <li><span class="tick p-bold" style="color: #FF0042;">✔</span> <span class="p-bold">Entrega quincenal a domicilio</span></li>
+            <li><span class="tick p-bold" style="color: #FF0042;">✔</span> <span class="p-bold">Beneficio PequeSwap</span></li>
+            <li><span class="tick benefit-light" style="color: #FF0042;">✔</span> <span class="benefit-light">Receta divertida para hacer en familia</span></li>
+            <li><span class="tick benefit-light" style="color: #FF0042;">✔</span> <span class="benefit-light">10% OFF en librerías y jugueterías educativas</span></li>
+          </ul>
+          <a href="#" class="btn btn-dark mt-3">Elegir plan</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- PLANES DE SUSCRIPCIÓN DETALLE -->
+
+<!-- FAQ -->
+<section class="text-center" style="background-color: #FFF5F7; font-family: 'Poppins', sans-serif; padding-top: 90px; padding-bottom: 90px;">
+  <div class="container">
+    <h2 class="h2-custom medium-h2 mb-5" style="color: #1D1D1D; font-size: 2.4rem;">
+      Preguntas frecuentes
+    </h2>
+
+    <div class="row">
+      <!-- Card 1 -->
+      <div class="col-md-4 mb-5 d-flex flex-column align-items-center text-center">
+        <img src="tarjeta.png" alt="Miembro 1" class="mb-3" style="max-width: 300px; height: auto; display: block; margin: 0 auto;">
+        <h5>¿Cuáles son los medios de pago?</h5>
+        <p class="p-custom">Podés pagar con tarjeta de crédito, débito, Mercado Pago o por transferencia bancaria. ¡Vos elegís el método más cómodo!</p>
+      </div>
+      <!-- Card 2 -->
+      <div class="col-md-4 mb-5 d-flex flex-column align-items-center text-center">
+     <img src="envio.png" alt="Miembro 2" class="mb-3" style="max-width: 300px; height: auto; display: block; margin: 0 auto;">
+        <h5>¿Cómo funcionan los envíos?</h5>
+        <p class="p-custom">Enviamos a todo el país cada 15 días. Si vivís en AMBA, llega en 48 hs hábiles. En el resto, puede demorar un poco más.</p>
+      </div>
+      <!-- Card 3 -->
+      <div class="col-md-4 mb-5 d-flex flex-column align-items-center text-center">
+<img src="cancelar.png" alt="Miembro 3" class="mb-3" style="max-width: 300px; height: auto; display: block; margin: 0 auto;">
+        <h5>¿Cómo cambio o cancelo mi plan?</h5>
+        <p class="p-custom">Podés hacerlo desde tu cuenta en cualquier momento. Sin complicaciones, con total libertad y sin cargos extra.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- FAQ -->
+
+<!-- CTA: Llamado a la acción final -->
+<section class="section-spacing text-center my-5" style="padding: 100px 20px;">
+  <div style="max-width: 800px; margin: 0 auto;">
+    <h2 class="h2-custom" style="color: #FF0042;">Convertí tu casa en el lugar donde las ideas cobran vida.</h2>
+    <p class="p-custom">¿Listo para empezar?</p>
+    <a href="#" class="btn btn-dark">Quiero este kit</a>
+  </div>
+</section>
+<!-- /CTA -->
+
+<!-- FOOTER: Pie de página -->
+<footer class="text-center py-4" style="background-color: #FFF5F7;">
+  <div class="container">
+    <p class="p-custom" style="color: #1D1D1D; font-family: 'Poppins', sans-serif; font-weight: 400;">
+      © Copyright 2025, All Rights Reserved
+    </p>
+  </div>
+</footer>
+<!-- FOOTER: Pie de página -->
+
+<!-- Bootstrap Bundle JS (incluye Popper) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+
+<!-- Script personalizado para cambiar el navbar al hacer scroll -->
+<script>
+window.addEventListener('scroll', function() {
+  const navbar = document.querySelector('.navbar');
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+});
+</script>
+
+<!-- Scripts adicionales -->
+<script src="scripts.js"></script>
+
+<canvas id="crayonsCanvas"></canvas>
+
+</body>
+</html>

@@ -17,6 +17,33 @@ body {
   scroll-behavior: smooth;
 }
 
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030; /* muy importante para que quede arriba */
+  background-color: white; /* para que no se vea transparente */
+}
+
+#hero {
+  position: relative;
+  z-index: 1; /* bajo, para que no tape el navbar */
+  overflow: visible;
+  user-select: none;
+}
+
+#crayonsCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+
 /* 3. LISTADO CHECK ✔ */
 .benefits-list {
   padding-left: 0 !important;
@@ -90,19 +117,26 @@ body {
 }
 
 .navbar-toggler {
-  border-color: #FFEFF1; /* color del borde del botón */
+  border: none;                /* sin borde */
+  background: transparent;     /* sin fondo */
+  padding: 0.25rem 0.5rem;     /* tamaño del botón */
+  outline: none;               /* sin contorno de enfoque */
+  box-shadow: none;            /* sin sombra */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-focus-ring-color: transparent;
 }
 
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler:focus-visible {
+  outline: none;
+  box-shadow: none;
+  border: none;                /* sigue sin borde al hacer foco */
+}
+
+/* Ícono hamburguesa con líneas en color claro (#FFEFF1) */
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='%23FFEFF1' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-}
-
-.navbar-toggler {
-  border: none;            /* sin borde */
-  background: transparent; /* sin fondo */
-  padding: 0.25rem 0.5rem; /* opcional: achica el área clickeable */
-  outline: none;           /* elimina borde de enfoque en algunos navegadores */
-  box-shadow: none;        /* quita sombra */
 }
 
 /* 5. HERO */
@@ -181,6 +215,8 @@ h5 {
   font-weight: 700; /* Bold */
 }
 
+
+
 /* 6. Botones */
 
 .btn {
@@ -257,6 +293,58 @@ h5 {
   transition: transform 0.3s ease-in-out;
 }
 
+/* INTERACCIÓN EN HERO */
+.floating-image {
+  position: absolute;
+  width: 100px; /* o el tamaño que quieras */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 100;
+  animation: popUp 0.3s ease-out;
+}
+
+/* Animación opcional */
+@keyframes popUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+#hero,
+#hero * {
+  user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE/Edge */
+}
+
+#hero img:hover {
+  transform: none !important;
+  transition: none !important;
+}
+
+@keyframes miniBounce {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  50% {
+    transform: translate(-50%, -55%) scale(1.1);
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* INTERACCIÓN EN HERO */
+
 /* 9. SECCIONES */
 section {
   padding: 20px 0;
@@ -290,7 +378,6 @@ section h2 {
 .peque-section {
   background-color: #FF0042;
   color: #FFF5F7;
-  border-radius: 8px; /* opcional: bordes redondeados */
   padding: 80px 20px;
 }
 
@@ -312,12 +399,14 @@ section h2 {
   transition: transform 0.3s ease-in-out;
 }
 
-.full-width {
-  width: 100vw;
-  padding-left: 0;
-  padding-right: 0;
-  margin-left: 0;
-  margin-right: 0;
+.peque-section.full-width {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;  /* para que no pegue al borde */
+  padding-right: 20px;
+  box-sizing: border-box;
+  /* quitá el margin y padding a 0 si los tenés en otro lado */
 }
 
 /* 11. Cambios específicos para la sección hero-pagina-detalle */
@@ -498,6 +587,24 @@ img.rounded-circle {
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1);
 }
 
+/* 19. PLANES / SUSCRIPCIONES */
+
+/* 1. Ocultar el tick ✔ que está como primer carácter */
+.benefits-list li::first-letter {
+  visibility: hidden;
+}
+
+/* 2. Quitar negrita (bold) a los textos en .p-bold y .p-semibold dentro de la lista */
+.benefits-list li span.p-bold,
+.benefits-list li span.p-semibold {
+  font-weight: 400 !important;
+}
+
+/* 3. Poner texto no bold (benefit-light) con color gris 50% */
+.benefits-list li span.benefit-light {
+  color: rgba(122, 122, 122, 0.5) !important;
+}
+
 /* 19. TITULOS */
 .h1-custom {
   font-size: 3rem;
@@ -578,6 +685,38 @@ img.rounded-circle {
   font-weight: 600;
   color: var(--dark-color);
 }
+
+/* 20. PAG DETALLE HERO */
+.hero-pagina-detalle {
+  position: relative;
+}
+
+.hero-pagina-detalle {
+  user-select: none;
+  -webkit-user-select: none; /* para Safari */
+  -moz-user-select: none;    /* para Firefox */
+  -ms-user-select: none;     /* para IE/Edge */
+  user-drag: none;
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  -ms-user-drag: none;
+}
+
+
+/* Animación miniBounce para la estela */
+@keyframes miniBounce {
+  0% {
+    transform: translate(-50%, -50%) scale(1.3);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+
+
+
 
 /* 20. GALERIA CON FOTOS */
 
